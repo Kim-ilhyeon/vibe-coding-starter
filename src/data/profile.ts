@@ -91,21 +91,41 @@ export const awards = [
 
 export const skillGroups = [
   {
-    category: "언어",
+    category: "프런트엔드",
     skills: [
       {
-        name: "Java",
+        name: "HTML",
         score: 4,
+      },
+      {
+        name: "CSS",
+        score: 3,
       },
       {
         name: "JavaScript",
         score: 4,
+      },
+      {
+        name: "Ajax",
+        score: 3.5,
+      },
+      {
+        name: "JSP",
+        score: 4,
+      },
+      {
+        name: "React",
+        score: 3,
       }
     ],
   },
   {
     category: "백엔드",
     skills: [
+      {
+        name: "Java",
+        score: 4,
+      },
       {
         name: "Spring Boot",
         score: 3.5,
@@ -125,46 +145,16 @@ export const skillGroups = [
     ],
   },
   {
-    category: "프런트엔드",
-    skills: [
-      {
-        name: "React",
-        score: 3,
-      },
-      {
-        name: "JSP",
-        score: 4,
-      },
-      {
-        name: "HTML",
-        score: 4,
-      },
-      {
-        name: "CSS",
-        score: 3,
-      },
-      {
-        name: "Ajax",
-        score: 3.5,
-      }
-    ],
-  },
-  {
     category: "데이터베이스",
     skills: [
       {
         name: "MySQL",
         score: 4,
-      }
-    ],
-  },
-  {
-    category: "프로젝트 외 실습",
-    skills: [
+      },
       {
         name: "Oracle DB",
         score: 4,
-      }
+      },
     ],
   },
   {

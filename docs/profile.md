@@ -9,11 +9,9 @@
 - 지금 찾는 자리: 신입 백엔드 개발자
 
 ## 기술 스택
-- 언어: Java, JavaScript
-- 백엔드: Spring Boot, Spring MVC, MyBatis, JWT 인증
-- 프런트엔드: React, JSP, HTML, CSS, Ajax
-- 데이터베이스: MySQL
-- 프로젝트 외 실습: Oracle DB
+- 프런트엔드: HTML, CSS, JavaScript, Ajax, JSP, React
+- 백엔드: Java, Spring Boot, Spring MVC, MyBatis, JWT 인증
+- 데이터베이스: MySQL, Oracle DB
 - 실시간 통신: WebSocket, STOMP
 - 외부 API: 토스페이먼츠 가상계좌 발급 API
 - 협업 도구: Git, GitHub, Notion, Slack
