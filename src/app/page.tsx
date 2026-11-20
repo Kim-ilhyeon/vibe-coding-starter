@@ -4,12 +4,14 @@ import { activities, awards, profile, skillGroups } from "@/data/profile";
 import { ProjectList } from "./project/project-list";
 
 const maxSkillScore = 5;
+const contactLinkClass =
+  "flex min-h-14 items-center gap-3 rounded-lg border border-background/25 px-4 py-3 text-sm font-medium hover:border-background/60 hover:bg-background/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-background";
 
 export default function Home(): ReactElement {
-  const { name, introduction, photo, summary } = profile;
+  const { name, introduction, photo, summary, links } = profile;
 
   return (
-    <main className="grid w-full gap-12 py-12">
+    <main className="grid w-full gap-12 pt-12">
       <section
         aria-labelledby="intro-heading"
         className="mx-auto grid w-full max-w-5xl items-center gap-8 px-6 md:grid-cols-[minmax(0,1fr)_17.5rem] md:gap-16"
@@ -104,10 +106,39 @@ export default function Home(): ReactElement {
             ))}
           </div>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold">연락</h2>
-        </section>
       </div>
+      <section aria-labelledby="contact-heading" className="bg-foreground py-10 text-background md:py-14">
+        <div className="mx-auto grid w-full max-w-5xl items-center gap-5 px-6 md:grid-cols-[1fr_3fr] md:gap-8">
+          <h2 id="contact-heading" className="text-2xl font-semibold">연락</h2>
+          <ul className="grid gap-3 md:grid-cols-3">
+            <li>
+              <a className={contactLinkClass} href={links.github}>
+                <svg aria-hidden="true" className="size-5 shrink-0" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 0 0 5.47 7.59c.4.07.55-.17.55-.38v-1.49c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.81.06 1.23.83 1.23.83.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.19c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                </svg>
+                개인 GitHub
+              </a>
+            </li>
+            <li>
+              <a className={contactLinkClass} href={links.blog}>
+                <svg aria-hidden="true" className="size-5 shrink-0" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  <path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10Zm0 0v7h7M8 13h8m-8 4h8" />
+                </svg>
+                개인 블로그
+              </a>
+            </li>
+            <li>
+              <a className={contactLinkClass} href={links.email}>
+                <svg aria-hidden="true" className="size-5 shrink-0" fill="none" stroke="currentColor" strokeWidth={1.75} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m4 7 8 6 8-6" />
+                </svg>
+                공개용 개발 이메일
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
   );
 }
