@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
 import { activities, awards, profile, skillGroups } from "@/data/profile";
+import { ProjectList } from "./project/project-list";
 
 const maxSkillScore = 5;
 
@@ -46,8 +47,9 @@ export default function Home(): ReactElement {
         </dl>
       </section>
       <div className="mx-auto grid w-full max-w-5xl gap-12 px-6">
-        <section>
-          <h2 className="text-xl font-semibold">프로젝트</h2>
+        <section aria-labelledby="projects-heading">
+          <h2 id="projects-heading" className="text-xl font-semibold">프로젝트</h2>
+          <ProjectList />
         </section>
         <section aria-labelledby="history-heading">
           <h2 id="history-heading" className="text-xl font-semibold">활동·수상 이력</h2>
