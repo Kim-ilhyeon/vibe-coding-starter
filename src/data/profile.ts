@@ -19,6 +19,13 @@ type SkillGroup = {
   skills: readonly { name: string; score: number }[];
 };
 
+type SummaryItem = {
+  id: string;
+  label: string;
+  value: number;
+  unit: string;
+};
+
 export const siteMetadata = {
   title: "김일현 Portfolio",
   description: "김일현의 신입 백엔드 개발자 포트폴리오. 오류의 원인을 분석해 문제를 해결하고, 부족한 부분은 스스로 찾아 공부하며 채워 갑니다. 팀 프로젝트에서 맡은 역할과 직접 구현한 기능을 소개합니다.",
@@ -31,12 +38,14 @@ export const profile = {
   photo: {
     src: "/이력서 사진.jpg",
     alt: "김일현 프로필 사진",
+    width: 1600,
+    height: 2059,
   },
-  summary: {
-    teamProjects: 2,
-    completedCourses: 2,
-    technologies: 19,
-  },
+  summary: [
+    { id: "team-projects", label: "팀 프로젝트", value: 2, unit: "개" },
+    { id: "completed-courses", label: "개발 교육과정", value: 2, unit: "개 수료" },
+    { id: "technologies", label: "사용 기술 스택", value: 19, unit: "개" },
+  ] satisfies readonly SummaryItem[],
   links: {
     github: "https://github.com/Kim-ilhyeon",
     blog: "https://kih3915.tistory.com/",
