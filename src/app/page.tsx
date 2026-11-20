@@ -1,6 +1,8 @@
 import Image from "next/image";
 import type { ReactElement } from "react";
-import { profile } from "@/data/profile";
+import { activities, awards, profile, skillGroups } from "@/data/profile";
+
+const maxSkillScore = 5;
 
 export default function Home(): ReactElement {
   const { name, introduction, photo, summary } = profile;
@@ -47,11 +49,58 @@ export default function Home(): ReactElement {
         <section>
           <h2 className="text-xl font-semibold">프로젝트</h2>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold">활동·수상 이력</h2>
+        <section aria-labelledby="history-heading">
+          <h2 id="history-heading" className="text-xl font-semibold">활동·수상 이력</h2>
+          <div className="mt-5 grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-black/10 bg-white p-5">
+              <h3 className="font-semibold">활동</h3>
+              <ol className="mt-2 divide-y divide-black/10">
+                {activities.map(({ period, title }): ReactElement => (
+                  <li key={period} className="grid gap-1 py-3">
+                    <span className="text-sm tabular-nums text-neutral-600">{period}</span>
+                    <span>{title}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div className="rounded-xl border border-black/10 bg-white p-5">
+              <h3 className="font-semibold">수상</h3>
+              <ol className="mt-2 divide-y divide-black/10">
+                {awards.map(({ date, recipient, title }): ReactElement => (
+                  <li key={date} className="grid gap-1 py-3">
+                    <span className="text-sm tabular-nums text-neutral-600">{date}</span>
+                    <span>{title}</span>
+                    <span className="text-sm text-neutral-600">수상자 {recipient}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
         </section>
-        <section>
-          <h2 className="text-xl font-semibold">기술 스택</h2>
+        <section aria-labelledby="skills-heading">
+          <h2 id="skills-heading" className="text-xl font-semibold">기술 스택</h2>
+          <p className="mt-2 text-sm text-neutral-600">{maxSkillScore}점 만점의 자기평가</p>
+          <div className="mt-5 grid items-start gap-4 md:grid-cols-2">
+            {skillGroups.map(({ category, skills }): ReactElement => (
+              <div key={category} className="rounded-xl border border-black/10 bg-white p-5">
+                <h3 className="font-semibold">{category}</h3>
+                <ul className="mt-4 grid gap-3">
+                  {skills.map(({ name, score }): ReactElement => (
+                    <li key={name} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)_3rem] items-center gap-3 text-sm">
+                      <span className="wrap-anywhere">{name}</span>
+                      <span aria-hidden="true" className="h-2 overflow-hidden rounded-full bg-neutral-200">
+                        <span
+                          className="block h-full rounded-full bg-blue-700"
+                          style={{ width: `${(score / maxSkillScore) * 100}%` }}
+                        />
+                      </span>
+                      <span className="text-right font-medium tabular-nums">{score}점</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </section>
         <section>
           <h2 className="text-xl font-semibold">연락</h2>
